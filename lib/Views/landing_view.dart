@@ -1,32 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sign_language_gp_app/Views/dictionary_view.dart';
+import 'package:sign_language_gp_app/Views/setting_view.dart';
+import 'package:sign_language_gp_app/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sign_language_gp_app/widgets/custom_list_title.dart';
 
 class LandingView extends StatelessWidget {
   LandingView({super.key});
   static String id = 'landingView';
-  TextEditingController controller = TextEditingController();
+  final TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                FontAwesomeIcons.bars,
-                color: Colors.black,
-              ),
-            )
-          ],
+          automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: Colors.white,
+        ),
+        endDrawer: Drawer(
+          width: 250.w,
+          backgroundColor: kPrimaryColor,
+          child: ListView(
+            children: [
+              CustomListTitle(
+                title: 'القاموس',
+                pageId: DictionaryView.id,
+                iconName: FontAwesomeIcons.book,
+              ),
+              const Divider(color: Colors.white),
+              CustomListTitle(
+                title: 'التعليم',
+                pageId: SettingView.id,
+                iconName: Icons.leaderboard,
+              ),
+              const Divider(color: Colors.white),
+              CustomListTitle(
+                title: 'حول التطبيق',
+                pageId: SettingView.id,
+                iconName: FontAwesomeIcons.addressCard,
+              ),
+              const Divider(color: Colors.white),
+              CustomListTitle(
+                title: 'الإعدادات',
+                pageId: SettingView.id,
+                iconName: FontAwesomeIcons.gear,
+              ),
+              const Divider(color: Colors.white),
+            ],
+          ),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16),
               child: TextField(
                 controller: controller,
                 onSubmitted: (value) {},
@@ -50,7 +79,9 @@ class LandingView extends StatelessWidget {
                     icon: const Icon(
                       FontAwesomeIcons.microphone,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      //TODO: Implement Speech To Text Code.
+                    },
                   ),
                 ),
               ),
