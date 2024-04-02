@@ -10,7 +10,7 @@ class CustomCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 42.w),
       child: Container(
         margin: EdgeInsets.only(top: 60.h),
-        height: 400.h,
+        height: 450.h,
         width: 320.w,
         decoration: BoxDecoration(
           boxShadow: [

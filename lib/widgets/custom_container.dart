@@ -15,7 +15,7 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 450.h),
-      height: 400.h,
+      height: 500.h,
       width: double.infinity,
       child: Card(
         child: Column(
