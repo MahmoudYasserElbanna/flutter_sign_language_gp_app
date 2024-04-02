@@ -7,6 +7,7 @@ import 'package:sign_language_gp_app/Views/introduction_view3.dart';
 import 'package:sign_language_gp_app/Views/landing_view.dart';
 import 'package:sign_language_gp_app/Views/learn_view.dart';
 import 'package:sign_language_gp_app/Views/setting_view.dart';
+import 'package:sign_language_gp_app/Views/splash_view.dart';
 
 void main() => runApp(const SignLanguageGPApp());
 
@@ -20,15 +21,16 @@ class SignLanguageGPApp extends StatelessWidget {
         theme: ThemeData(fontFamily: 'Cairo'),
         debugShowCheckedModeBanner: false,
         routes: {
-          IntroView1.id: (context) => IntroView1(),
-          IntroView2.id: (context) => IntroView2(),
-          IntroView3.id: (context) => IntroView3(),
+          SplashView.id: (context) => const SplashView(),
+          IntroView1.id: (context) => const IntroView1(),
+          IntroView2.id: (context) => const IntroView2(),
+          IntroView3.id: (context) => const IntroView3(),
           LandingView.id: (context) => LandingView(),
-          SettingView.id: (context) => SettingView(),
-          LearnView.id: (context) => LearnView(),
-          DictionaryView.id: (context) => DictionaryView(),
+          SettingView.id: (context) => const SettingView(),
+          LearnView.id: (context) => const LearnView(),
+          DictionaryView.id: (context) => const DictionaryView(),
         },
-        initialRoute: IntroView1.id,
+        initialRoute: SplashView.id,
       ),
       designSize: const Size(390, 840),
     );
