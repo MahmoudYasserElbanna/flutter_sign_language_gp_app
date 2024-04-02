@@ -5,8 +5,8 @@ import 'package:sign_language_gp_app/widgets/custom_card.dart';
 import 'package:sign_language_gp_app/widgets/custom_container.dart';
 import 'package:sign_language_gp_app/widgets/custom_position.dart';
 
-class IntroductionView3 extends StatelessWidget {
-  const IntroductionView3({super.key});
+class IntroView3 extends StatelessWidget {
+  const IntroView3({super.key});
   static String id = "IntroductionView3";
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class IntroductionView3 extends StatelessWidget {
             //Container With Image
             CustomCard(),
             CustomContainer(
-              highLightText: 'تلعم',
+              highLightText: 'تعلم',
               text: 'اساسيات لغة الاشارة بكل سهولة',
               pageId: LandingView.id,
             ),

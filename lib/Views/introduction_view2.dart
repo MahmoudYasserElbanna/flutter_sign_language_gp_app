@@ -5,8 +5,8 @@ import 'package:sign_language_gp_app/widgets/custom_card.dart';
 import 'package:sign_language_gp_app/widgets/custom_container.dart';
 import 'package:sign_language_gp_app/widgets/custom_position.dart';
 
-class IntroductionView2 extends StatelessWidget {
-  const IntroductionView2({super.key});
+class IntroView2 extends StatelessWidget {
+  const IntroView2({super.key});
   static String id = 'introductionView2';
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class IntroductionView2 extends StatelessWidget {
             CustomContainer(
               highLightText: 'قاموس',
               text: 'متوفر لبعض الكلامات حتى يسهل عليك التعبير والبحث فيها',
-              pageId: IntroductionView3.id,
+              pageId: IntroView3.id,
             ),
             //Image
             CustomPosition(image: 'assets/images/SplashScreenImage2.png'),

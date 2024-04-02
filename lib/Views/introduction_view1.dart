@@ -5,7 +5,8 @@ import 'package:sign_language_gp_app/widgets/custom_card.dart';
 import 'package:sign_language_gp_app/widgets/custom_container.dart';
 import 'package:sign_language_gp_app/widgets/custom_position.dart';
 
-class SplashView extends StatelessWidget {
+class IntroView1 extends StatelessWidget {
+  const IntroView1({super.key});
   static String id = 'introductionView1';
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class SplashView extends StatelessWidget {
             CustomContainer(
               highLightText: 'تحويل النص',
               text: 'من صوت الى لغة اشارة عن طريق شخصية ثلاثية الأبعاد',
-              pageId: IntroductionView2.id,
+              pageId: IntroView2.id,
             ),
             //Image
             CustomPosition(image: 'assets/images/SplashScreenImage1.png'),

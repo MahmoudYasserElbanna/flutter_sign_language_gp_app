@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sign_language_gp_app/constants.dart';
 import 'package:sign_language_gp_app/widgets/custom_button.dart';
+import 'package:sign_language_gp_app/widgets/custom_progress_bar.dart';
 
 class CustomContainer extends StatelessWidget {
   CustomContainer({
@@ -40,6 +41,7 @@ class CustomContainer extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 32.h),
+            const CustomProgressBar(),
             CustomButton(
               buttonLabel: 'التالي',
               buttonColor: kPrimaryColor,
