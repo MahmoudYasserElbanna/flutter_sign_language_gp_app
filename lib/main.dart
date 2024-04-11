@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_language_gp_app/Views/dictionary_view.dart';
 import 'package:sign_language_gp_app/Views/introduction_view1.dart';
@@ -8,8 +9,15 @@ import 'package:sign_language_gp_app/Views/landing_view.dart';
 import 'package:sign_language_gp_app/Views/learn_view.dart';
 import 'package:sign_language_gp_app/Views/setting_view.dart';
 import 'package:sign_language_gp_app/Views/splash_view.dart';
+import 'package:sign_language_gp_app/firebase_options.dart';
 
-void main() => runApp(const SignLanguageGPApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const SignLanguageGPApp());
+}
 
 class SignLanguageGPApp extends StatelessWidget {
   const SignLanguageGPApp({super.key});
