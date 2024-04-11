@@ -14,7 +14,7 @@ class IntroView3 extends StatelessWidget {
         body: CustomStack(
           highLightText: 'تعلم',
           text: 'اساسيات لغة الاشارة بكل سهولة',
-          pageIdtoPush: LandingView.id,
+          pageIdToPush: LandingView.id,
           image: 'assets/images/SplashScreenImage1.png',
         ),
       ),

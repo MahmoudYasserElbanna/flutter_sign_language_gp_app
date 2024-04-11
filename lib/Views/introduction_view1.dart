@@ -14,7 +14,7 @@ class IntroView1 extends StatelessWidget {
         body: CustomStack(
           highLightText: 'تحويل النص',
           text: 'من صوت الى لغة اشارة عن طريق شخصية ثلاثية الأبعاد',
-          pageIdtoPush: IntroView2.id,
+          pageIdToPush: IntroView2.id,
           image: 'assets/images/SplashScreenImage1.png',
         ),
       ),

@@ -14,7 +14,7 @@ class IntroView2 extends StatelessWidget {
         body: CustomStack(
           highLightText: 'قاموس',
           text: 'متوفر لبعض الكلامات حتى يسهل عليك التعبير والبحث فيها',
-          pageIdtoPush: IntroView3.id,
+          pageIdToPush: IntroView3.id,
           image: 'assets/images/SplashScreenImage2.png',
         ),
       ),
