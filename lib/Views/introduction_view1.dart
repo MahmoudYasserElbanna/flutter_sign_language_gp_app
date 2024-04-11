@@ -13,20 +13,7 @@ class IntroView1 extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: kPrimaryColor,
-        body: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            //Container With Image
-            CustomCard(),
-            CustomContainer(
-              highLightText: 'تحويل النص',
-              text: 'من صوت الى لغة اشارة عن طريق شخصية ثلاثية الأبعاد',
-              pageId: IntroView2.id,
-            ),
-            //Image
-            CustomPosition(image: 'assets/images/SplashScreenImage1.png'),
-          ],
-        ),
+        body: ,
       ),
     );
   }
