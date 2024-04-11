@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sign_language_gp_app/Views/about_view.dart';
 import 'package:sign_language_gp_app/Views/dictionary_view.dart';
 import 'package:sign_language_gp_app/Views/learn_view.dart';
 import 'package:sign_language_gp_app/Views/setting_view.dart';
@@ -26,7 +27,7 @@ class DrawerBody extends StatelessWidget {
         const Divider(color: Colors.white),
         CustomListTitle(
           title: 'حول التطبيق',
-          pageId: SettingView.id,
+          pageId: AboutView.id,
           iconName: FontAwesomeIcons.addressCard,
         ),
         const Divider(color: Colors.white),
