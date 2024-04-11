@@ -15,7 +15,7 @@ class IntroView2 extends StatelessWidget {
           highLightText: 'قاموس',
           text: 'متوفر لبعض الكلامات حتى يسهل عليك التعبير والبحث فيها',
           pageIdToPush: IntroView3.id,
-          image: 'assets/images/SplashScreenImage2.png',
+          image: 'assets/images/IntroViewImage2Preview.png',
         ),
       ),
     );

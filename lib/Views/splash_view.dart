@@ -73,9 +73,10 @@ class _SplashViewState extends State<SplashView> {
                   duration: const Duration(milliseconds: 2000),
                   opacity: animate ? 1 : 0,
                   child: const Image(
-                    image: AssetImage('assets/images/SplashScreenImage1.png'),
-                    width: 200,
-                    height: 250,
+                    image: AssetImage(
+                        'assets/images/SplashScreenImagePreview.png'),
+                    width: 400,
+                    height: 600,
                   ),
                 ),
               ),
