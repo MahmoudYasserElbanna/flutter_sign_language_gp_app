@@ -5,7 +5,7 @@ import 'package:sign_language_gp_app/widgets/custom_stack.dart';
 
 class IntroView3 extends StatelessWidget {
   const IntroView3({super.key});
-  static String id = "IntroductionView3";
+  static String id = 'IntroductionView3';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
