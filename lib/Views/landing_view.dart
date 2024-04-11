@@ -28,6 +28,7 @@ class LandingView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              // TODO : Firebase Logic to Retrive Vedio
               CustomTextField(),
             ],
           ),

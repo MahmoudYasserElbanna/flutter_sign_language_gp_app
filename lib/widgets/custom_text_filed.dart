@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       onSubmitted: (value) {
-        //TODO : Implement Speech To Text Code That will retrive the Video.
+        //TODO : Search by Given-Input (value) Text in Firestore.
       },
       decoration: InputDecoration(
         border: const OutlineInputBorder(
@@ -34,7 +34,7 @@ class CustomTextField extends StatelessWidget {
             FontAwesomeIcons.microphone,
           ),
           onPressed: () {
-            //TODO: Implement Speech To Text Code.
+            //TODO: Calling API 'Speach2Text'.
           },
         ),
       ),
