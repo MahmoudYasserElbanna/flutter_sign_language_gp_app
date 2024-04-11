@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:sign_language_gp_app/Views/about_view.dart';
 import 'package:sign_language_gp_app/Views/dictionary_view.dart';
 import 'package:sign_language_gp_app/Views/introduction_view1.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,9 +35,10 @@ class SignLanguageGPApp extends StatelessWidget {
           IntroView2.id: (context) => const IntroView2(),
           IntroView3.id: (context) => const IntroView3(),
           LandingView.id: (context) => LandingView(),
-          SettingView.id: (context) => const SettingView(),
-          LearnView.id: (context) => const LearnView(),
           DictionaryView.id: (context) => const DictionaryView(),
+          LearnView.id: (context) => const LearnView(),
+          AboutView.id: (context) => const AboutView(),
+          SettingView.id: (context) => const SettingView(),
         },
         initialRoute: SplashView.id,
       ),

@@ -5,6 +5,6 @@ class DictionaryView extends StatelessWidget {
   static String id = 'dictionaryView';
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold();
   }
 }

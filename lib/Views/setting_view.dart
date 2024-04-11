@@ -5,6 +5,6 @@ class SettingView extends StatelessWidget {
   static String id = 'settingView';
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold();
   }
 }

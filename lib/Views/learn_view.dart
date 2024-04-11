@@ -5,6 +5,6 @@ class LearnView extends StatelessWidget {
   static String id = 'learnView';
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold();
   }
 }
