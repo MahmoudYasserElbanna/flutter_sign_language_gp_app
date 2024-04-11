@@ -62,11 +62,11 @@ class _SplashViewState extends State<SplashView> {
               ),
             ),
             AnimatedPositioned(
-              duration: const Duration(milliseconds: 2400),
+              duration: const Duration(milliseconds: 2000),
               bottom:
-                  animate ? MediaQuery.of(context).size.height / 2 - 100 : 0,
+                  animate ? MediaQuery.of(context).size.height / 3 - 100 : 0,
               left:
-                  animate ? MediaQuery.of(context).size.width / 2 - 100 : -200,
+                  animate ? MediaQuery.of(context).size.width / 4 - 100 : -150,
               child: Align(
                 alignment: Alignment.center,
                 child: AnimatedOpacity(
@@ -76,7 +76,7 @@ class _SplashViewState extends State<SplashView> {
                     image: AssetImage(
                         'assets/images/SplashScreenImagePreview.png'),
                     width: 400,
-                    height: 600,
+                    height: 450,
                   ),
                 ),
               ),
@@ -104,7 +104,7 @@ class _SplashViewState extends State<SplashView> {
   }
 
   Future startAnimation() async {
-    await Future.delayed(const Duration(milliseconds: 1000));
+    await Future.delayed(const Duration(milliseconds: 700));
     setState(() {
       animate = true;
     });
