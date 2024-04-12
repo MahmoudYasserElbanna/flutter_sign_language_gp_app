@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
-    super.key,
-  });
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController controller;
+  final Function(String) onSubmit;
+
+  const CustomTextField({
+    Key? key,
+    required this.controller,
+    required this.onSubmit,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
-      onSubmitted: (value) {
-        //TODO : Search by Given-Input (value) Text in Firestore.
-      },
+      onSubmitted: onSubmit,
       decoration: InputDecoration(
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -29,13 +32,33 @@ class CustomTextField extends StatelessWidget {
             controller.clear();
           },
         ),
-        suffixIcon: IconButton(
-          icon: const Icon(
-            FontAwesomeIcons.microphone,
-          ),
-          onPressed: () {
-            //TODO: Calling API 'Speach2Text'.
-          },
+        suffixIcon: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              icon: const Icon(
+                FontAwesomeIcons.magnifyingGlass,
+              ),
+              onPressed: () {
+                onSubmit(controller.text);
+              },
+            ),
+            Container(
+              height: 24,
+              child: VerticalDivider(
+                width: 1,
+                color: Colors.grey.shade400,
+              ),
+            ),
+            IconButton(
+              icon: const Icon(
+                FontAwesomeIcons.microphone,
+              ),
+              onPressed: () {
+                //TODO : Handle microphone button press
+              },
+            ),
+          ],
         ),
       ),
     );

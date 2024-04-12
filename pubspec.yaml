@@ -37,6 +37,7 @@ dependencies:
   firebase_storage: ^11.0.15
   cloud_firestore: ^4.16.1
   modal_progress_hud_nsn: ^0.5.1
+  video_player: ^2.2.14
 
   flutter:
     sdk: flutter
