@@ -13,12 +13,31 @@ class CustomProgressBar extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
-        child: LinearProgressIndicator(
-          borderRadius: BorderRadius.circular(16),
-          value: progressValue,
-          minHeight: 24,
-          backgroundColor: Colors.grey[400],
-          valueColor: AlwaysStoppedAnimation<Color>(kPrimaryColor),
+        child: Container(
+          height: 32,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: kPrimaryColor,
+          ),
+          child: Container(
+            height: 24,
+            margin: EdgeInsets.only(
+                left: progressValue, top: 6, bottom: 6, right: 6),
+            width: 20,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.white,
+            ),
+
+            // child: LinearProgressIndicator(
+            //   borderRadius: BorderRadius.circular(16),
+            //   value: progressValue,
+            //   minHeight: 24,
+            //   backgroundColor: Colors.grey[400],
+            //   valueColor: AlwaysStoppedAnimation<Color>(kPrimaryColor),
+            //  ),
+          ),
         ),
       ),
     );

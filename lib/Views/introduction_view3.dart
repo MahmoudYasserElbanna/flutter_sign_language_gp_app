@@ -16,7 +16,7 @@ class IntroView3 extends StatelessWidget {
           text: 'اساسيات لغة الاشارة بكل سهولة',
           pageIdToPush: LandingView.id,
           image: 'assets/images/IntroViewImage3Preview.png',
-          value: 1,
+          value: 6,
         ),
       ),
     );
