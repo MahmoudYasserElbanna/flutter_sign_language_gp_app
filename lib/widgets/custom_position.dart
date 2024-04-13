@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomPosition extends StatelessWidget {
-  CustomPosition({required this.image});
+  const CustomPosition({super.key, required this.image});
   final String image;
   @override
   Widget build(BuildContext context) {

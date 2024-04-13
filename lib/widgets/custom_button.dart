@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
+    super.key,
     required this.buttonLabel,
     required this.buttonColor,
     required this.onTap,

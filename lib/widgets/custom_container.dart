@@ -5,7 +5,8 @@ import 'package:sign_language_gp_app/widgets/custom_button.dart';
 import 'package:sign_language_gp_app/widgets/custom_progress_bar.dart';
 
 class CustomContainer extends StatelessWidget {
-  CustomContainer({
+  const CustomContainer({
+    super.key,
     required this.highLightText,
     required this.text,
     required this.pageId,
