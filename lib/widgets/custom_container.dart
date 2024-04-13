@@ -44,7 +44,7 @@ class CustomContainer extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 32.h),
-            CustomProgressBar(value: value),
+            CustomProgressBar(progressValue: value),
             CustomButton(
               buttonLabel: 'التالي',
               buttonColor: kPrimaryColor,

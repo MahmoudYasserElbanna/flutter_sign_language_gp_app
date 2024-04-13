@@ -16,7 +16,7 @@ class IntroView1 extends StatelessWidget {
           text: 'من صوت الى لغة اشارة عن طريق شخصية ثلاثية الأبعاد',
           pageIdToPush: IntroView2.id,
           image: 'assets/images/IntroViewImage1Preview.png',
-          value: 0.1,
+          value: 0.2,
         ),
       ),
     );
