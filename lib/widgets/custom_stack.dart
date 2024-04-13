@@ -10,8 +10,10 @@ class CustomStack extends StatelessWidget {
     required this.text,
     required this.pageIdToPush,
     required this.image,
+    required this.value,
   });
   final String highLightText, text, pageIdToPush, image;
+  final double value;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -20,9 +22,10 @@ class CustomStack extends StatelessWidget {
         //Container With Image
         CustomCard(),
         CustomContainer(
-          highLightText: highLightText,
           text: text,
+          highLightText: highLightText,
           pageId: pageIdToPush,
+          value: value,
         ),
         //Image
         CustomPosition(image: image),

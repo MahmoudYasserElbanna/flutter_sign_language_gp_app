@@ -9,8 +9,10 @@ class CustomContainer extends StatelessWidget {
     required this.highLightText,
     required this.text,
     required this.pageId,
+    required this.value,
   });
   final String text, highLightText, pageId;
+  final double value;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,6 +43,7 @@ class CustomContainer extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 32.h),
+            CustomProgressBar(value: value),
             CustomButton(
               buttonLabel: 'التالي',
               buttonColor: kPrimaryColor,
