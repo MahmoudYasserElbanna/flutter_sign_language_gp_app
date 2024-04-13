@@ -20,7 +20,7 @@ class CustomStack extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         //Container With Image
-        CustomCard(),
+        const CustomCard(),
         CustomContainer(
           text: text,
           highLightText: highLightText,
