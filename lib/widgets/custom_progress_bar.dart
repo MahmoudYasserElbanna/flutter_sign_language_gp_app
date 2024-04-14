@@ -23,7 +23,7 @@ class CustomProgressBar extends StatelessWidget {
           child: Container(
             height: 24,
             margin: EdgeInsets.only(
-                left: progressValue, top: 6, bottom: 6, right: 6),
+                left: progressValue, top: 6, bottom: 6, right: 8),
             width: 20,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
