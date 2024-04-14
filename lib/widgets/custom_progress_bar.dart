@@ -29,14 +29,6 @@ class CustomProgressBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               color: Colors.white,
             ),
-
-            // child: LinearProgressIndicator(
-            //   borderRadius: BorderRadius.circular(16),
-            //   value: progressValue,
-            //   minHeight: 24,
-            //   backgroundColor: Colors.grey[400],
-            //   valueColor: AlwaysStoppedAnimation<Color>(kPrimaryColor),
-            //  ),
           ),
         ),
       ),
