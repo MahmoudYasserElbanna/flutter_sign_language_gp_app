@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:sign_language_gp_app/constants.dart';
 import 'package:sign_language_gp_app/widgets/custom_text_filed.dart';
+import 'package:sign_language_gp_app/widgets/custom_video_player.dart';
 import 'package:sign_language_gp_app/widgets/drawer_body.dart';
+import 'package:video_player/video_player.dart';
 
 class LandingView extends StatefulWidget {
-  LandingView({Key? key}) : super(key: key);
+  const LandingView({Key? key}) : super(key: key);
   static String id = 'landingView';
   @override
   State<LandingView> createState() => _LandingViewState();
@@ -14,7 +17,8 @@ class LandingView extends StatefulWidget {
 
 class _LandingViewState extends State<LandingView> {
   final firestore = FirebaseStorage.instance;
-  late List<String> imageUrls = [];
+  late List<String> videosUrls = [];
+  late List<VideoPlayerController> videoControllers = [];
   final TextEditingController textEditingController = TextEditingController();
 
   @override
@@ -22,20 +26,33 @@ class _LandingViewState extends State<LandingView> {
     super.initState();
     textEditingController.addListener(() {
       setState(() {
-        imageUrls.clear();
+        videosUrls.clear();
+        videoControllers.forEach((controller) {
+          controller.dispose();
+        });
+        videoControllers.clear();
       });
     });
   }
 
-  Future<void> getImageUrls(String query) async {
+  Future<void> getVideoUrls(String query) async {
     final List<String> searchQueries = query.split(' ');
     for (String searchQuery in searchQueries) {
-      final ref = firestore.ref().child('$searchQuery.png');
+      final ref = firestore.ref().child('$searchQuery.mp4');
       final url = await ref.getDownloadURL();
       setState(() {
-        imageUrls.add(url);
+        videosUrls.add(url);
+        videoControllers.add(VideoPlayerController.network(url));
       });
     }
+  }
+
+  @override
+  void dispose() {
+    videoControllers.forEach((controller) {
+      controller.dispose();
+    });
+    super.dispose();
   }
 
   @override
@@ -59,16 +76,15 @@ class _LandingViewState extends State<LandingView> {
               children: [
                 CustomTextField(
                   controller: textEditingController,
-                  onSubmit: getImageUrls,
+                  onSubmit: getVideoUrls,
                 ),
                 Column(
-                  children: imageUrls
+                  children: videosUrls
+                      .asMap()
+                      .entries
                       .map(
-                        (url) => Image.network(
-                          url,
-                          height: 600.h,
-                          width: double.infinity,
-                          fit: BoxFit.contain,
+                        (entry) => VideoPlayerWidget(
+                          controller: videoControllers[entry.key],
                         ),
                       )
                       .toList(),
