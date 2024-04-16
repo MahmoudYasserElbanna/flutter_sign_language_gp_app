@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sign_language_gp_app/Views/landing_view.dart';
+import 'package:sign_language_gp_app/views/landing_view.dart';
 import 'package:sign_language_gp_app/constants.dart';
 import 'package:sign_language_gp_app/widgets/custom_stack.dart';
 

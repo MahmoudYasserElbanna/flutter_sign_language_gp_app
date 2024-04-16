@@ -1,15 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:sign_language_gp_app/Views/about_view.dart';
-import 'package:sign_language_gp_app/Views/dictionary_view.dart';
-import 'package:sign_language_gp_app/Views/introduction_view1.dart';
+import 'package:sign_language_gp_app/views/about_view.dart';
+import 'package:sign_language_gp_app/views/dictionary_view.dart';
+import 'package:sign_language_gp_app/views/introduction_view1.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sign_language_gp_app/Views/introduction_view2.dart';
-import 'package:sign_language_gp_app/Views/introduction_view3.dart';
-import 'package:sign_language_gp_app/Views/landing_view.dart';
-import 'package:sign_language_gp_app/Views/learn_view.dart';
-import 'package:sign_language_gp_app/Views/setting_view.dart';
-import 'package:sign_language_gp_app/Views/splash_view.dart';
+import 'package:sign_language_gp_app/views/introduction_view2.dart';
+import 'package:sign_language_gp_app/views/introduction_view3.dart';
+import 'package:sign_language_gp_app/views/landing_view.dart';
+import 'package:sign_language_gp_app/views/learn_view.dart';
+import 'package:sign_language_gp_app/views/setting_view.dart';
+import 'package:sign_language_gp_app/views/splash_view.dart';
 import 'package:sign_language_gp_app/firebase_options.dart';
 
 void main() async {

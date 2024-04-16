@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sign_language_gp_app/Views/introduction_view1.dart';
+import 'package:sign_language_gp_app/views/introduction_view1.dart';
 import 'package:sign_language_gp_app/constants.dart';
 
 class SplashView extends StatefulWidget {
