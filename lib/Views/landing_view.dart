@@ -17,9 +17,9 @@ class LandingView extends StatefulWidget {
 
 class _LandingViewState extends State<LandingView> {
   final firestore = FirebaseStorage.instance;
+  final TextEditingController textEditingController = TextEditingController();
   late List<String> videosUrls = [];
   late List<VideoPlayerController> videoControllers = [];
-  final TextEditingController textEditingController = TextEditingController();
 
   @override
   void initState() {
@@ -42,7 +42,7 @@ class _LandingViewState extends State<LandingView> {
       final url = await ref.getDownloadURL();
       setState(() {
         videosUrls.add(url);
-        videoControllers.add(VideoPlayerController.network(url));
+        videoControllers.add(VideoPlayerController.networkUrl(Uri.parse(url)));
       });
     }
   }
