@@ -1,14 +1,8 @@
-import 'package:audioplayers/audioplayers.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:record/record.dart';
 import 'package:sign_language_gp_app/constants.dart';
-import 'package:sign_language_gp_app/models/speech2text_model.dart';
-import 'package:sign_language_gp_app/service/get_text_by_text.dart';
-import 'package:sign_language_gp_app/widgets/custom_carousal_slider.dart';
 import 'package:sign_language_gp_app/widgets/custom_text_filed.dart';
 import 'package:sign_language_gp_app/widgets/custom_video_player.dart';
 import 'package:sign_language_gp_app/widgets/drawer_body.dart';
