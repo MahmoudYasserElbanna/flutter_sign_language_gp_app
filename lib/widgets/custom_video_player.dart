@@ -22,26 +22,29 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-            onTap: () {
-              setState(() {
-                if (widget.controller.value.isPlaying) {
-                  widget.controller.pause();
-                } else {
-                  widget.controller.play();
-                }
-              });
-            },
-            child: widget.controller.value.isPlaying
-                ? const Icon(Icons.stop)
-                : const Icon(Icons.play_arrow)),
-        AspectRatio(
-          aspectRatio: widget.controller.value.aspectRatio,
-          child: VideoPlayer(widget.controller),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          GestureDetector(
+              onTap: () {
+                setState(() {
+                  if (widget.controller.value.isPlaying) {
+                    widget.controller.pause();
+                  } else {
+                    widget.controller.play();
+                  }
+                });
+              },
+              child: widget.controller.value.isPlaying
+                  ? const Icon(Icons.stop)
+                  : const Icon(Icons.play_arrow)),
+          AspectRatio(
+            aspectRatio: widget.controller.value.aspectRatio,
+            child: VideoPlayer(widget.controller),
+          ),
+        ],
+      ),
     );
   }
 

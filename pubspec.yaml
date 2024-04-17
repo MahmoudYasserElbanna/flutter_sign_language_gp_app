@@ -30,16 +30,17 @@ environment:
 dependencies:
   http: 1.1.0
   cupertino_icons: ^1.0.2
-  flutter_screenutil: ^5.9.0
-  font_awesome_flutter: ^10.7.0
+  cloud_firestore: ^4.16.1
   carousel_slider: ^4.2.1
   firebase_core: ^2.29.0
   firebase_storage: ^11.0.15
-  cloud_firestore: ^4.16.1
+  flutter_screenutil: ^5.9.0
+  font_awesome_flutter: ^10.7.0
   modal_progress_hud_nsn: ^0.5.1
   video_player: ^2.2.14
   scroll_loop_auto_scroll: ^0.0.5
   scrollable_positioned_list: ^0.3.8
+  smooth_page_indicator: any
 
   flutter:
     sdk: flutter
