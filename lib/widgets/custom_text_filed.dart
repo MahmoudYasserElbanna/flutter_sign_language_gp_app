@@ -18,6 +18,11 @@ class CustomTextField extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: TextField(
+        onChanged: (value) {
+          if (value.isEmpty) {
+            controller.clear();
+          } else {}
+        },
         controller: controller,
         onSubmitted: onSubmit,
         decoration: InputDecoration(
