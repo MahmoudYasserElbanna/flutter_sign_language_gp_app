@@ -1,10 +1,14 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:record/record.dart';
 import 'package:sign_language_gp_app/constants.dart';
 import 'package:sign_language_gp_app/models/speech2text_model.dart';
 import 'package:sign_language_gp_app/service/get_text_by_text.dart';
+import 'package:sign_language_gp_app/widgets/custom_carousal_slider.dart';
 import 'package:sign_language_gp_app/widgets/custom_text_filed.dart';
 import 'package:sign_language_gp_app/widgets/custom_video_player.dart';
 import 'package:sign_language_gp_app/widgets/drawer_body.dart';
@@ -37,12 +41,21 @@ class _LandingViewState extends State<LandingView> {
     });
   }
 
+  @override
+  void dispose() {
+    videoControllers.forEach((controller) {
+      controller.dispose();
+    });
+
+    super.dispose();
+  }
+
   Future<void> getVideoUrls(String query) async {
     // TODO add Model API
 
-    Speech2Text speech2text =
-        await Translate().translate(text: query, voice_record: "");
-    print(speech2text.text);
+    // Speech2Text speech2text =
+    //     await Translate().translate(text: query, voice_record: "");
+    // print(speech2text.text);
     final List<String> searchQueries = query.split(' ');
     for (String searchQuery in searchQueries) {
       final ref = firestore.ref().child('$searchQuery.mp4');
@@ -52,14 +65,6 @@ class _LandingViewState extends State<LandingView> {
         videoControllers.add(VideoPlayerController.networkUrl(Uri.parse(url)));
       });
     }
-  }
-
-  @override
-  void dispose() {
-    videoControllers.forEach((controller) {
-      controller.dispose();
-    });
-    super.dispose();
   }
 
   @override
@@ -80,11 +85,9 @@ class _LandingViewState extends State<LandingView> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomTextField(
-                  controller: textEditingController,
-                  onSubmit: getVideoUrls,
-                ),
+                // CarouselSlider.builder(...),
                 Column(
                   children: videosUrls
                       .asMap()
@@ -95,6 +98,10 @@ class _LandingViewState extends State<LandingView> {
                         ),
                       )
                       .toList(),
+                ),
+                CustomTextField(
+                  controller: textEditingController,
+                  onSubmit: getVideoUrls,
                 ),
               ],
             ),
