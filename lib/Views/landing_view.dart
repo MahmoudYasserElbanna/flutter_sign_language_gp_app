@@ -3,6 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:sign_language_gp_app/constants.dart';
+import 'package:sign_language_gp_app/helpers/api.dart';
+import 'package:sign_language_gp_app/models/speech2text_model.dart';
+import 'package:sign_language_gp_app/service/get_text_by_text.dart';
 import 'package:sign_language_gp_app/widgets/custom_text_filed.dart';
 import 'package:sign_language_gp_app/widgets/custom_video_player.dart';
 import 'package:sign_language_gp_app/widgets/drawer_body.dart';
@@ -45,11 +48,11 @@ class _LandingViewState extends State<LandingView> {
   }
 
   Future<void> getVideoUrls(String query) async {
-    // TODO add Model API
-
-    // Speech2Text speech2text =
-    //     await Translate().translate(text: query, voice_record: "");
-    // print(speech2text.text);
+    Api api = Api();
+    Translate translate = Translate(api);
+    Speech2Text speech2Text =
+        await translate.translate(text: query, voiceRecord: "");
+    print("Speech to Text output" + speech2Text.translation.toString());
     final List<String> searchQueries = query.split(' ');
     for (String searchQuery in searchQueries) {
       final ref = firestore.ref().child('$searchQuery.mp4');
@@ -60,6 +63,20 @@ class _LandingViewState extends State<LandingView> {
       });
     }
   }
+  // Future<void> getVideoUrls(String query) async {
+  //   Speech2Text speech2text =
+  //       await Translate().translate(text: query, voice_record: "");
+  //   print(speech2text.text);
+  //   final List<String> searchQueries = query.split(' ');
+  //   for (String searchQuery in searchQueries) {
+  //     final ref = firestore.ref().child('$searchQuery.mp4');
+  //     final url = await ref.getDownloadURL();
+  //     setState(() {
+  //       videosUrls.add(url);
+  //       videoControllers.add(VideoPlayerController.networkUrl(Uri.parse(url)));
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +98,6 @@ class _LandingViewState extends State<LandingView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // CarouselSlider.builder(...),
                 Column(
                   children: videosUrls
                       .asMap()

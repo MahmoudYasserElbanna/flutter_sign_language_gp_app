@@ -1,11 +1,11 @@
 class Speech2Text {
-  final String text;
-  final String voice_record;
-  Speech2Text({required this.voice_record, required this.text});
+  final List<dynamic> translation;
+  final dynamic time_spent;
+  Speech2Text({required this.time_spent, required this.translation});
   factory Speech2Text.fromJson(jsonData) {
     return Speech2Text(
-      text: jsonData['text'],
-      voice_record: jsonData['voice_record'],
+      translation: jsonData['translation'],
+      time_spent: jsonData['time_spent'],
     );
   }
 }
