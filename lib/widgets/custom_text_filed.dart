@@ -70,7 +70,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       Source urlSource = UrlSource(audioPath);
       await audioPlayer.play(urlSource);
     } catch (e) {
-      print("can't play recording :  $e");
+      print('can not play recording :  $e');
     }
   }
 
@@ -79,32 +79,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: TextField(
-        onChanged: (value) {
-          if (value.isEmpty) {
-            widget.controller.clear();
-          } else {}
-        },
         controller: widget.controller,
         onSubmitted: widget.onSubmit,
         decoration: InputDecoration(
           border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
           hintText: 'ادخل النص',
-          hintStyle: const TextStyle(
-            color: Colors.grey,
-          ),
+          hintStyle: const TextStyle(color: Colors.grey),
           prefixIcon: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
                 icon: const Icon(
-                  FontAwesomeIcons.rotateLeft,
+                  FontAwesomeIcons.clipboard,
                 ),
                 onPressed: () {
-                  if (!isRecording && audioPath != null) {
-                    playRecording();
-                  }
+                  playRecording();
                 },
               ),
               SizedBox(
