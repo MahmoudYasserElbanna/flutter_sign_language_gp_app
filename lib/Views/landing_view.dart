@@ -52,11 +52,11 @@ class _LandingViewState extends State<LandingView> {
     Api api = Api();
     Translate translate = Translate(api);
     try {
-      Speech2Text speech2Text =
-          await translate.translate(text: query, voiceRecord: "");
+      Speech2Text speech2Text = await translate.translate(text: query);
+      List<dynamic> speechIds = speech2Text.ids;
       print("Speech to Text output : " + speech2Text.translation.toString());
-      final List<String> searchQueries = query.split(' ');
-      for (String searchQuery in searchQueries) {
+      print("Speech to Text IDs : " + speechIds.toString());
+      for (String searchQuery in speechIds) {
         final ref = firestore.ref().child('$searchQuery.mp4');
         final url = await ref.getDownloadURL();
         setState(() {
@@ -103,9 +103,9 @@ class _LandingViewState extends State<LandingView> {
                       )
                     : CarouselSlider.builder(
                         options: CarouselOptions(
-                          height: 650.h,
+                          height: 620.h,
                           autoPlay: true,
-                          autoPlayInterval: const Duration(seconds: 15),
+                          autoPlayInterval: const Duration(seconds: 6),
                           autoPlayAnimationDuration:
                               const Duration(milliseconds: 800),
                           viewportFraction: 1,

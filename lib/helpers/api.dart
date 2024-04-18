@@ -13,7 +13,8 @@ class Api {
 
     if (response.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(response.body);
-      print("response.body: " + response.body.toString());
+      print("response body from API class : " + response.body.toString());
+      print(data.toString());
       return data;
     } else {
       throw Exception(

@@ -7,8 +7,8 @@ class Translate {
   Translate(this.api);
 
   Future<Speech2Text> translate({
-    required String text,
-    required String voiceRecord,
+    required dynamic text,
+    String voiceRecord = "",
   }) async {
     try {
       Map<String, dynamic> data = await api.post(
@@ -18,6 +18,7 @@ class Translate {
           "voice_record": voiceRecord,
         },
       );
+      print('Data From translate class' + data.toString());
       return Speech2Text.fromJson(data);
     } catch (e) {
       print('Error in translation: $e');
