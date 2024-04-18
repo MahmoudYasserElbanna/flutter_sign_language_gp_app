@@ -1,14 +1,18 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Api {
-  //End of  Send the HTTP POST request
-  Future<dynamic> post(
-      {required String postUrl, @required dynamic body}) async {
+  Future<dynamic> post({
+    required String postUrl,
+    @required dynamic body,
+  }) async {
     Map<String, String> headers = {"Content-Type": "application/json"};
+
     http.Response response = await http.post(Uri.parse(postUrl),
         body: jsonEncode(body), headers: headers);
+
     print("response.state code: " + response.statusCode.toString());
 
     if (response.statusCode == 200) {

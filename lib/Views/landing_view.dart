@@ -54,23 +54,36 @@ class _LandingViewState extends State<LandingView> {
     try {
       Speech2Text speech2Text = await translate.translate(text: query);
       List<dynamic> speechIds = speech2Text.ids;
-      print("Speech to Text output : " + speech2Text.translation.toString());
-      print("Speech to Text IDs : " + speechIds.toString());
-      for (String searchQuery in speechIds) {
-        final ref = firestore.ref().child('$searchQuery.mp4');
-        final url = await ref.getDownloadURL();
-        setState(() {
-          videosUrls.add(url);
-          videoControllers
-              .add(VideoPlayerController.networkUrl(Uri.parse(url)));
-        });
+
+      for (dynamic searchQuery in speechIds) {
+        if (searchQuery is List) {
+          for (dynamic queryWithList in searchQuery) {
+            print('Query List : ' + queryWithList.toString());
+            final ref = firestore.ref().child('$queryWithList.mp4');
+            final url = await ref.getDownloadURL();
+            setState(() {
+              videosUrls.add(url);
+              videoControllers
+                  .add(VideoPlayerController.networkUrl(Uri.parse(url)));
+            });
+          }
+        } else if (searchQuery is String) {
+          final ref = firestore.ref().child('$searchQuery.mp4');
+          final url = await ref.getDownloadURL();
+          setState(() {
+            videosUrls.add(url);
+            videoControllers
+                .add(VideoPlayerController.networkUrl(Uri.parse(url)));
+          });
+        }
       }
     } on Exception catch (e) {
       print('Exception with Firebase : ' + e.toString());
     }
   }
 
-  @override
+  // print("Speech to Text output : " + speech2Text.translation.toString());
+  // print("Speech to Text IDs : " + speechIds.toString());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -95,30 +108,34 @@ class _LandingViewState extends State<LandingView> {
                   onSubmit: getVideoUrls,
                 ),
                 videosUrls.isEmpty
-                    ? const Padding(
-                        padding: EdgeInsets.only(top: 300),
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 300),
                         child: CircularProgressIndicator(
-                          color: Color(0XFF0F4C75),
+                          color: kPrimaryColor,
                         ),
                       )
-                    : CarouselSlider.builder(
-                        options: CarouselOptions(
-                          height: 620.h,
-                          autoPlay: true,
-                          autoPlayInterval: const Duration(seconds: 6),
-                          autoPlayAnimationDuration:
-                              const Duration(milliseconds: 800),
-                          viewportFraction: 1,
+                    : Container(
+                        clipBehavior: Clip.antiAlias,
+                        padding: const EdgeInsets.only(bottom: 32),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
                         ),
-                        itemCount: videosUrls.length,
-                        itemBuilder: (context, index, realIndex) {
-                          return SizedBox(
-                            height: 650.h,
-                            child: VideoPlayerWidget(
+                        child: CarouselSlider.builder(
+                          options: CarouselOptions(
+                            height: 700.h,
+                            autoPlay: true,
+                            autoPlayInterval: const Duration(seconds: 6),
+                            autoPlayAnimationDuration:
+                                const Duration(milliseconds: 800),
+                            viewportFraction: 1,
+                          ),
+                          itemCount: videosUrls.length,
+                          itemBuilder: (context, index, realIndex) {
+                            return VideoPlayerWidget(
                               controller: videoControllers[index],
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
               ],
             ),

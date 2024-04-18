@@ -18,11 +18,11 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   @override
   void initState() {
     super.initState();
-    isPlaying = true; // Set initial state to playing
+    isPlaying = true;
     widget.controller.initialize().then((_) {
       setState(() {});
       if (isPlaying) {
-        widget.controller.play(); // Auto-play when initialized
+        widget.controller.play();
       }
     });
   }
@@ -75,7 +75,14 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           ),
           AspectRatio(
             aspectRatio: widget.controller.value.aspectRatio,
-            child: VideoPlayer(widget.controller),
+            child: FittedBox(
+              fit: BoxFit.contain,
+              child: SizedBox(
+                width: widget.controller.value.size.width,
+                height: widget.controller.value.size.height,
+                child: VideoPlayer(widget.controller),
+              ),
+            ),
           ),
         ],
       ),
@@ -84,7 +91,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   @override
   void dispose() {
-    widget.controller.dispose();
+    widget.controller.pause();
     super.dispose();
   }
 }

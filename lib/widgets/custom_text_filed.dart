@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:record/record.dart';
 
+
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final Function(String) onSubmit;
@@ -47,7 +48,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         });
       }
     } catch (e) {
-      print('Error in Start Recording Funcion :$e');
+      print('Error in Start Recording Function :$e');
     }
   }
 
@@ -59,7 +60,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         audioPath = path!;
       });
       //undo this if you finished the API
-      // await SignApi.sendAudioToAPI(audioPath);
+      // TODO send audio to api
     } catch (e) {
       print('error stop recording $e');
     }
