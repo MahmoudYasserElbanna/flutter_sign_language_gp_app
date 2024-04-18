@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sign_language_gp_app/constants.dart';
 
 class Category extends StatelessWidget {
-  Category({required this.text, required this.color, required this.onTap});
-  String text;
-  Color color;
-  Function() onTap;
+  const Category({super.key, required this.text, required this.onTap});
+  final String text;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +16,17 @@ class Category extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           padding: const EdgeInsets.only(left: 16),
-          child: Text(
-            text,
-            style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
-          ),
-          color: color,
+          color: kPrimaryHighLightFontColor,
           height: 75,
           width: double.infinity,
+          child: Text(
+            text,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),
+          ),
         ),
       ),
     );

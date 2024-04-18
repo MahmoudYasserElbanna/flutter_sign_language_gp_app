@@ -26,39 +26,34 @@ class LearnView extends StatelessWidget {
           ),
           Category(
             text: 'الحروف الابجدية',
-            color: kPrimaryHighLightFontColor,
             onTap: () {},
           ),
           Category(
-              text: 'الأرقام', color: kPrimaryHighLightFontColor, onTap: () {}),
+            text: 'الأرقام',
+            onTap: () {},
+          ),
           Category(
             text: 'الأسرة',
-            color: kPrimaryHighLightFontColor,
             onTap: () {},
           ),
           Category(
             text: 'الملابس',
-            color: kPrimaryHighLightFontColor,
             onTap: () {},
           ),
           Category(
             text: 'ايام الأسبوع',
-            color: kPrimaryHighLightFontColor,
             onTap: () {},
           ),
           Category(
             text: 'الشهور',
-            color: kPrimaryHighLightFontColor,
             onTap: () {},
           ),
           Category(
             text: 'الصلاه',
-            color: kPrimaryHighLightFontColor,
             onTap: () {},
           ),
           Category(
             text: 'الألوان',
-            color: kPrimaryHighLightFontColor,
             onTap: () {},
           ),
         ],
