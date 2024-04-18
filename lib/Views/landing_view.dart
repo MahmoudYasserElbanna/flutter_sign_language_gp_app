@@ -95,7 +95,8 @@ class _LandingViewState extends State<LandingView> {
                   onSubmit: getVideoUrls,
                 ),
                 videosUrls.isEmpty
-                    ? const Center(
+                    ? const Padding(
+                        padding: EdgeInsets.only(top: 300),
                         child: CircularProgressIndicator(
                           color: Color(0XFF0F4C75),
                         ),
@@ -104,7 +105,7 @@ class _LandingViewState extends State<LandingView> {
                         options: CarouselOptions(
                           height: 650.h,
                           autoPlay: true,
-                          autoPlayInterval: const Duration(seconds: 6),
+                          autoPlayInterval: const Duration(seconds: 15),
                           autoPlayAnimationDuration:
                               const Duration(milliseconds: 800),
                           viewportFraction: 1,
