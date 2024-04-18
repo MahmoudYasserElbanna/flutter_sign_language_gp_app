@@ -50,33 +50,24 @@ class _LandingViewState extends State<LandingView> {
   Future<void> getVideoUrls(String query) async {
     Api api = Api();
     Translate translate = Translate(api);
-    Speech2Text speech2Text =
-        await translate.translate(text: query, voiceRecord: "");
-    print("Speech to Text output" + speech2Text.translation.toString());
-    final List<String> searchQueries = query.split(' ');
-    for (String searchQuery in searchQueries) {
-      final ref = firestore.ref().child('$searchQuery.mp4');
-      final url = await ref.getDownloadURL();
-      setState(() {
-        videosUrls.add(url);
-        videoControllers.add(VideoPlayerController.networkUrl(Uri.parse(url)));
-      });
+    try {
+      Speech2Text speech2Text =
+          await translate.translate(text: query, voiceRecord: "");
+      print("Speech to Text output : " + speech2Text.translation.toString());
+      final List<String> searchQueries = query.split(' ');
+      for (String searchQuery in searchQueries) {
+        final ref = firestore.ref().child('$searchQuery.mp4');
+        final url = await ref.getDownloadURL();
+        setState(() {
+          videosUrls.add(url);
+          videoControllers
+              .add(VideoPlayerController.networkUrl(Uri.parse(url)));
+        });
+      }
+    } on Exception catch (e) {
+      print('Exception with Firebase : ' + e.toString());
     }
   }
-  // Future<void> getVideoUrls(String query) async {
-  //   Speech2Text speech2text =
-  //       await Translate().translate(text: query, voice_record: "");
-  //   print(speech2text.text);
-  //   final List<String> searchQueries = query.split(' ');
-  //   for (String searchQuery in searchQueries) {
-  //     final ref = firestore.ref().child('$searchQuery.mp4');
-  //     final url = await ref.getDownloadURL();
-  //     setState(() {
-  //       videosUrls.add(url);
-  //       videoControllers.add(VideoPlayerController.networkUrl(Uri.parse(url)));
-  //     });
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
