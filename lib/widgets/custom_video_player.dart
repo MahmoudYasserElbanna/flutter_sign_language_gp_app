@@ -15,9 +15,9 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   @override
   void initState() {
     super.initState();
-    // widget.controller.initialize().then((_) {
-    //   setState(() {});
-    // });
+    widget.controller.initialize().then((_) {
+      setState(() {});
+    });
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -70,6 +71,7 @@ class _LandingViewState extends State<LandingView> {
   }
 
   @override
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -87,23 +89,36 @@ class _LandingViewState extends State<LandingView> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  children: videosUrls
-                      .asMap()
-                      .entries
-                      .map(
-                        (entry) => VideoPlayerWidget(
-                          controller: videoControllers[entry.key],
-                        ),
-                      )
-                      .toList(),
-                ),
                 CustomTextField(
                   controller: textEditingController,
                   onSubmit: getVideoUrls,
                 ),
+                videosUrls.isEmpty
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                          color: Color(0XFF0F4C75),
+                        ),
+                      )
+                    : CarouselSlider.builder(
+                        options: CarouselOptions(
+                          height: 650.h,
+                          autoPlay: true,
+                          autoPlayInterval: const Duration(seconds: 6),
+                          autoPlayAnimationDuration:
+                              const Duration(milliseconds: 800),
+                          viewportFraction: 1,
+                        ),
+                        itemCount: videosUrls.length,
+                        itemBuilder: (context, index, realIndex) {
+                          return SizedBox(
+                            height: 650.h,
+                            child: VideoPlayerWidget(
+                              controller: videoControllers[index],
+                            ),
+                          );
+                        },
+                      ),
               ],
             ),
           ),
