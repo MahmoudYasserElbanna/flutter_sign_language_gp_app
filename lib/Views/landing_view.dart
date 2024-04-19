@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -122,12 +123,13 @@ class _LandingViewState extends State<LandingView> {
                         ),
                         child: CarouselSlider.builder(
                           options: CarouselOptions(
-                            height: 700.h,
+                            height: MediaQuery.of(context).size.height * 1.05,
                             autoPlay: true,
                             autoPlayInterval: const Duration(seconds: 6),
                             autoPlayAnimationDuration:
                                 const Duration(milliseconds: 800),
                             viewportFraction: 1,
+                            enableInfiniteScroll: true,
                           ),
                           itemCount: videosUrls.length,
                           itemBuilder: (context, index, realIndex) {
@@ -145,3 +147,13 @@ class _LandingViewState extends State<LandingView> {
     );
   }
 }
+
+
+// DotsIndicator(
+                //   dotsCount: videosUrls.length,
+                //   position: 0,
+                //   decorator: const DotsDecorator(
+                //     color: Colors.black87, // Inactive color
+                //     activeColor: Colors.redAccent,
+                //   ),
+                // ),

@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:record/record.dart';
 
-
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final Function(String) onSubmit;
@@ -127,12 +126,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     ? Icon(
                         Icons.mic_none,
                         color: Colors.black,
-                        size: 24.0.h,
+                        size: 24.h,
                       )
                     : Icon(
                         Icons.mic,
                         color: Colors.red,
-                        size: 28.0.h,
+                        size: 28.h,
                       ),
               ),
             ],
