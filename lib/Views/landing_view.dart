@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -111,10 +110,16 @@ class _LandingViewState extends State<LandingView> {
                 videosUrls.isEmpty
                     ? Padding(
                         padding: const EdgeInsets.only(top: 300),
-                        child: CircularProgressIndicator(
-                          color: kPrimaryColor,
-                        ),
-                      )
+                        child: Center(
+                          child: Text(
+                            'تكلم معي',
+                            style: TextStyle(
+                              fontSize: 24.sp,
+                              fontWeight: FontWeight.bold,
+                              color: kPrimaryColor,
+                            ),
+                          ),
+                        ))
                     : Container(
                         clipBehavior: Clip.antiAlias,
                         padding: const EdgeInsets.only(bottom: 32),
@@ -123,9 +128,11 @@ class _LandingViewState extends State<LandingView> {
                         ),
                         child: CarouselSlider.builder(
                           options: CarouselOptions(
-                            height: MediaQuery.of(context).size.height * 1.05,
+                            height: MediaQuery.of(context).size.height *
+                                1.00000000005,
                             autoPlay: true,
-                            autoPlayInterval: const Duration(seconds: 6),
+                            reverse: true,
+                            autoPlayInterval: const Duration(seconds: 4),
                             autoPlayAnimationDuration:
                                 const Duration(milliseconds: 800),
                             viewportFraction: 1,

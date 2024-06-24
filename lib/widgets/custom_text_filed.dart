@@ -120,7 +120,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(shadowColor: Colors.white),
+                style: ElevatedButton.styleFrom(
+                    shadowColor: Colors.transparent,
+                    backgroundColor: Colors.transparent),
                 onPressed: isRecording ? stopRecording : startRecording,
                 child: isRecording
                     ? Icon(

@@ -27,14 +27,16 @@ class SignLanguageGPApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => MaterialApp(
-        theme: ThemeData(fontFamily: 'Cairo'),
+        theme: ThemeData(
+            fontFamily: 'Cairo',
+            scaffoldBackgroundColor: const Color(0xffDBDCDF)),
         debugShowCheckedModeBanner: false,
         routes: {
           SplashView.id: (context) => const SplashView(),
           IntroView1.id: (context) => const IntroView1(),
           IntroView2.id: (context) => const IntroView2(),
           IntroView3.id: (context) => const IntroView3(),
-          LandingView.id: (context) => LandingView(),
+          LandingView.id: (context) => const LandingView(),
           DictionaryView.id: (context) => const DictionaryView(),
           LearnView.id: (context) => const LearnView(),
           AboutView.id: (context) => const AboutView(),

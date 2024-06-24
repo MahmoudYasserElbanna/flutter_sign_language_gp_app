@@ -31,7 +31,7 @@ class IntroPageTwo extends StatelessWidget {
                 color: kPrimaryColor,
               ),
             ),
-            Image.asset('assets/images/development team.png'),
+            Image.asset('assets/images/dataSetGpTeam.jpg'),
           ],
         ),
       ),
