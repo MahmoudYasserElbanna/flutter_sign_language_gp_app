@@ -82,7 +82,7 @@ class _LandingViewState extends State<LandingView> {
     }
   }
 
-  // ذا انفض الناس عن غزة وملوا من أخبارها فلا تتخلى عنها حتى لو بقيت وحدك لازم تدعمها
+  // ذا انفض الناس عن غزة وملوا من أخبارها فلا تتخلى عنها حتى لو بقيت وحدك.. لازم تدعمها
   // print("Speech to Text output : " + speech2Text.translation.toString());
   // print("Speech to Text IDs : " + speechIds.toString());
   @override
