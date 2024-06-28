@@ -38,6 +38,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     super.dispose();
   }
 
+  //ذا انفض الناس عن غزة وملوا من أخبارها فلا تتخلى عنها حتى لو بقيت وحدك لازم تدعمها
   Future<void> startRecording() async {
     try {
       if (await audioRecorder.hasPermission()) {

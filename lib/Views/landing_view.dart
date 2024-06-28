@@ -82,6 +82,7 @@ class _LandingViewState extends State<LandingView> {
     }
   }
 
+  // ذا انفض الناس عن غزة وملوا من أخبارها فلا تتخلى عنها حتى لو بقيت وحدك لازم تدعمها
   // print("Speech to Text output : " + speech2Text.translation.toString());
   // print("Speech to Text IDs : " + speechIds.toString());
   @override
@@ -132,7 +133,7 @@ class _LandingViewState extends State<LandingView> {
                                 1.00000000005,
                             autoPlay: true,
                             reverse: true,
-                            autoPlayInterval: const Duration(seconds: 4),
+                            autoPlayInterval: const Duration(seconds: 22),
                             autoPlayAnimationDuration:
                                 const Duration(milliseconds: 800),
                             viewportFraction: 1,
