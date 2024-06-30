@@ -11,6 +11,7 @@ class SettingView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('الإعدادات'),
+        centerTitle: true,
       ),
       body: Center(
         child: Row(

@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:sign_language_gp_app/constants.dart';
@@ -11,6 +10,7 @@ import 'package:sign_language_gp_app/widgets/custom_text_filed.dart';
 import 'package:sign_language_gp_app/widgets/custom_video_player.dart';
 import 'package:sign_language_gp_app/widgets/drawer_body.dart';
 import 'package:video_player/video_player.dart';
+import 'dictionary_view.dart';
 
 class LandingView extends StatefulWidget {
   const LandingView({Key? key}) : super(key: key);
@@ -82,14 +82,27 @@ class _LandingViewState extends State<LandingView> {
     }
   }
 
-  // ذا انفض الناس عن غزة وملوا من أخبارها فلا تتخلى عنها حتى لو بقيت وحدك.. لازم تدعمها
-  // print("Speech to Text output : " + speech2Text.translation.toString());
-  // print("Speech to Text IDs : " + speechIds.toString());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
+          title: ElevatedButton(
+            onPressed: () async {
+              final result = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DictionaryView(),
+                ),
+              );
+              if (result != null && result is String) {
+                textEditingController.text = result;
+                getVideoUrls(result);
+              }
+            },
+            child: const Text('أختر جمله من القاموس الخاص بك'),
+          ),
           automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: const Color.fromARGB(255, 0, 0, 0),
@@ -120,7 +133,8 @@ class _LandingViewState extends State<LandingView> {
                               color: kPrimaryColor,
                             ),
                           ),
-                        ))
+                        ),
+                      )
                     : Container(
                         clipBehavior: Clip.antiAlias,
                         padding: const EdgeInsets.only(bottom: 32),
@@ -132,6 +146,8 @@ class _LandingViewState extends State<LandingView> {
                             height: MediaQuery.of(context).size.height *
                                 1.00000000005,
                             reverse: true,
+                            // autoPlay: true,
+                            // enableInfiniteScroll: true,
                             autoPlayInterval: const Duration(seconds: 22),
                             autoPlayAnimationDuration:
                                 const Duration(milliseconds: 800),
