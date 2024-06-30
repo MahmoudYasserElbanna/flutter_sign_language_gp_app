@@ -90,14 +90,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
           prefixIcon: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              IconButton(
-                icon: const Icon(
-                  FontAwesomeIcons.clipboard,
-                ),
-                onPressed: () {
-                  playRecording();
-                },
-              ),
               SizedBox(
                 height: 24.h,
                 child: VerticalDivider(

@@ -92,7 +92,7 @@ class _LandingViewState extends State<LandingView> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         ),
         endDrawer: Drawer(
           width: 250.w,
@@ -131,13 +131,11 @@ class _LandingViewState extends State<LandingView> {
                           options: CarouselOptions(
                             height: MediaQuery.of(context).size.height *
                                 1.00000000005,
-                            autoPlay: true,
                             reverse: true,
                             autoPlayInterval: const Duration(seconds: 22),
                             autoPlayAnimationDuration:
                                 const Duration(milliseconds: 800),
                             viewportFraction: 1,
-                            enableInfiniteScroll: true,
                           ),
                           itemCount: videosUrls.length,
                           itemBuilder: (context, index, realIndex) {
@@ -155,13 +153,3 @@ class _LandingViewState extends State<LandingView> {
     );
   }
 }
-
-
-// DotsIndicator(
-                //   dotsCount: videosUrls.length,
-                //   position: 0,
-                //   decorator: const DotsDecorator(
-                //     color: Colors.black87, // Inactive color
-                //     activeColor: Colors.redAccent,
-                //   ),
-                // ),
