@@ -9,7 +9,7 @@ class DictionaryView extends StatefulWidget {
 }
 
 class _DictionaryViewState extends State<DictionaryView> {
-  TextEditingController _controller = TextEditingController();
+  TextEditingController controller = TextEditingController();
   List<String> sentences = [
     'محمد رسول الله',
     'السلام عليكم',
@@ -18,7 +18,7 @@ class _DictionaryViewState extends State<DictionaryView> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    controller.dispose();
     super.dispose();
   }
 
@@ -60,14 +60,14 @@ class _DictionaryViewState extends State<DictionaryView> {
             ),
             const SizedBox(height: 16),
             TextField(
-              controller: _controller,
+              controller: controller,
               decoration: InputDecoration(
                 labelText: 'أضف جملة جديدة',
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.add),
                   onPressed: () {
-                    addSentence(_controller.text);
-                    _controller.clear();
+                    addSentence(controller.text);
+                    controller.clear();
                   },
                 ),
               ),

@@ -26,7 +26,9 @@ class LearnView extends StatelessWidget {
           ),
           Category(
             text: 'الحروف الابجدية',
-            onTap: () {},
+            onTap: () {
+              // TODO: Implement your logic here
+            },
           ),
           Category(
             text: 'الأرقام',
